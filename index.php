@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="en">
-
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -17,7 +16,6 @@
   <link rel="stylesheet" type="text/css" href="librerias/alertify/css/themes/bootstrap.min.css">
   <title>Data Table</title>
 </head>
-
 <body>
   <div class="container">
     <div class="row">
@@ -42,9 +40,6 @@
       </div>
     </div>
   </div>
-
-
-
   <!-- Modal -->
   <div class="modal fade" id="agreganuevosdatos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -78,8 +73,6 @@
       </div>
     </div>
   </div>
-
-
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

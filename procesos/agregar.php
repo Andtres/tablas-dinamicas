@@ -6,7 +6,7 @@
         $_POST['anio'],
         $_POST['empresa']
     );
-    $datos1=array('1','1','1');
+    
     $obj= new Crud();
 
     echo $obj->agregarNuevo($datos);
