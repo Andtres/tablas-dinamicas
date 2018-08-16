@@ -10,3 +10,4 @@
     $obj= new Crud();
 
     echo $obj->agregarNuevo($datos);
+    echo 1;

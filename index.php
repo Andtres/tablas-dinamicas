@@ -73,7 +73,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-primary" id="btn-agragarnuevo">Agregar nuevo</button>
+          <button type="button" class="btn btn-primary" id="btnAgregarnuevo">Agregar nuevo</button>
         </div>
       </div>
     </div>
@@ -94,18 +94,9 @@
   <!--font awesome-->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
     crossorigin="anonymous">
-
-  <script>
+    <script>
     $(document).ready(function () {
-      $('#tablaDatatable').load('tabla.php');
-    });
-  </script>
-  
-
-
-  <script>
-    $(document).ready(function () {
-      $('#btn-agragarnuevo').click(function () {
+      $('#btnAgregarnuevo').click(function () {
         datos = $('#frmnuevo').serialize();
         $.ajax({
           type: "POST",
@@ -123,8 +114,11 @@
       });
     });
   </script>
-
-
+  <script>
+    $(document).ready(function () {
+      $('#tablaDatatable').load('tabla.php');
+    });
+  </script> 
 </body>
 
 </html>
