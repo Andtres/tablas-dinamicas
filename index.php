@@ -56,7 +56,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <form action="" name="frmnuevo">
+          <form action="" name="frmnuevo" id="frmnuevo">
             <label for="">
               Nombre
             </label>
@@ -102,14 +102,15 @@
           type: "POST",
           data: datos,
           url: "procesos/agregar.php",
-          succes: function (r) {
-            if (r == 1) {
+          success:function(r){
+            if(r==1){
+              $('#frmnuevo')[0].reset();
               $('#tablaDatatable').load('tabla.php');
-              alertify.success("Agregado con exito");
-            } else {
+              alertify.success("agregado con exito");
+            }else{
               alertify.error("Fallo al agregar");
             }
-          }
+				  }
         });
       });
     });
@@ -120,5 +121,4 @@
     });
   </script> 
 </body>
-
 </html>
