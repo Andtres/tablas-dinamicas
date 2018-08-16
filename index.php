@@ -73,6 +73,40 @@
       </div>
     </div>
   </div>
+  <!-- Modal -->
+  <div class="modal fade" id="modalEditar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Actualizar juegos</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="" name="frmnuevoU" id="frmnuevoU">
+            <input type="text" name="idJuego" hidden="" id="idJuego">
+            <label for="">
+              Nombre
+            </label>
+            <input type="text" class="form-control input-sm" id="nombreU" name="nombreU">
+            <label for="">
+              Año
+            </label>
+            <input type="text" class="form-control input-sm" id="anioU" name="anioU">
+            <label for="">
+              Empresa
+            </label>
+            <input type="text" class="form-control input-sm" id="empresaU" name="empresaU">
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-warning" id="btnActualizar">Actualizar</button>
+        </div>
+      </div>
+    </div>
+  </div>
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -87,7 +121,7 @@
   <!--font awesome-->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
     crossorigin="anonymous">
-    <script>
+  <script>
     $(document).ready(function () {
       $('#btnAgregarnuevo').click(function () {
         datos = $('#frmnuevo').serialize();
@@ -95,15 +129,15 @@
           type: "POST",
           data: datos,
           url: "procesos/agregar.php",
-          success:function(r){
-            if(r==1){
+          success: function (r) {
+            if (r == 1) {
               $('#frmnuevo')[0].reset();
               $('#tablaDatatable').load('tabla.php');
               alertify.success("agregado con exito");
-            }else{
+            } else {
               alertify.error("Fallo al agregar");
             }
-				  }
+          }
         });
       });
     });
@@ -112,6 +146,23 @@
     $(document).ready(function () {
       $('#tablaDatatable').load('tabla.php');
     });
-  </script> 
+  </script>
+  <script>
+    function agregaFrmActualizar(idjuego){
+		$.ajax({
+			type:"POST",
+			data:"idjuego=" + idjuego,
+			url:"procesos/obtenDatos.php",
+			success:function(r){
+				datos=jQuery.parseJSON(r);
+				$('#idJuego').val(datos['id_juego']);
+				$('#nombreU').val(datos['nombre']);
+				$('#anioU').val(datos['anio']);
+				$('#empresaU').val(datos['empresa']);
+			}
+		});
+	}
+  </script>
 </body>
+
 </html>

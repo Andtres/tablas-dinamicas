@@ -5,7 +5,7 @@
     $result=$conexion->query($sql);
 ?>
 <div>
-    <table class="table table-hover table-condensed" id="iddatatable">
+    <table class="table table-hover table-condensed table-bordered" id="iddatatable">
         <thead style="background-color: #dc3545; color: white; font-weight: bold">
             <tr>
                 <td>Nombre</td>
@@ -24,7 +24,7 @@
                 <td>Eliminar</td>
             </tr>
         </tfoot>
-        <tbody>
+        <tbody style="background-color: white;">
             <?php 
                 while($mostrar=$result->fetch_row()):
             ?>
@@ -39,13 +39,13 @@
                     <?php echo $mostrar[3]?>
                 </td>
                 <td style="text-align: center;">
-                    <span class="btn btn-warning btn-xs">
+                    <span class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modalEditar" onclick="agregaFrmActualizar('<?php echo $mostrar[0]?>')">
                         <span class="fas fa-edit"></span>
                     </span>
 
                 </td>
                 <td style="text-align: center;">
-                    <span class="btn btn-warning btn-xs">
+                    <span class="btn btn-warning btn-sm">
                         <span class="fas fa-trash"></span>
                     </span>
                 </td>
