@@ -1,6 +1,5 @@
 <?php 
     require_once ("clases/conexion.php");
-    
     $conexion= new Conectar();
     $sql="SELECT * from t_juegos;";
     $result=$conexion->query($sql);
