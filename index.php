@@ -22,12 +22,14 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-12">
-        <div class="card text-center">
+        <div class="card text-left">
           <div class="card-header">
             Tablas dinamicas con datatable y php
           </div>
           <div class="card-body">
             <span class="btn btn-primary">Agregar nuevo</span>
+            <hr>
+            <div id="tablaDatatable"><?php include_once('tabla.php')?></div>
           </div>
           <div class="card-footer text-muted">
            By Andres
@@ -36,6 +38,7 @@
       </div>
     </div>
   </div>
+  
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -49,6 +52,17 @@
   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
   <script src="librerias/alertify/alertify.min.js"></script>
+  <!--font awesome-->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 </body>
-
+<!--<script>
+    $(document).ready(function(){
+      $('#tablaDatatable').load('tabla.php');
+    });
+</script>-->
+<script>
+        $(document).ready(function() {
+    $('#iddatatable').DataTable();
+        } );
+    </script>
 </html>

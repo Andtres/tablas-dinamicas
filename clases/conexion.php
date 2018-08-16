@@ -1,8 +1,9 @@
 <?php
-    class Conectar{
-        public function __construtc(){
-            $conexion=mysqli_connect('localhost','root','','juegos');
-            return $conexion;
+    class Conectar extends mysqli{
+        public function Conectar(){
+            parent::__construct('localhost','root','','juegos');
+            //$conexion=mysqli_connect();
+            //return $conexion;
         }        
  
     }
