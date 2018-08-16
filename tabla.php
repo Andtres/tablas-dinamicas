@@ -29,14 +29,20 @@
                 while($mostrar=$result->fetch_row()):
             ?>
             <tr>
-                <td><?php echo $mostrar[1]?></td>
-                <td><?php echo $mostrar[2]?></td>
-                <td><?php echo $mostrar[3]?></td>
+                <td>
+                    <?php echo $mostrar[1]?>
+                </td>
+                <td>
+                    <?php echo $mostrar[2]?>
+                </td>
+                <td>
+                    <?php echo $mostrar[3]?>
+                </td>
                 <td style="text-align: center;">
                     <span class="btn btn-warning btn-xs">
                         <span class="fas fa-edit"></span>
                     </span>
-                    
+
                 </td>
                 <td style="text-align: center;">
                     <span class="btn btn-warning btn-xs">
@@ -49,5 +55,8 @@
             ?>
         </tbody>
     </table>
-
-    
+    <script>
+        $(document).ready(function () {
+            $('#iddatatable').DataTable();
+        });
+    </script>

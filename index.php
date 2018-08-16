@@ -32,7 +32,7 @@
             </span>
             <hr>
             <div id="tablaDatatable">
-              <?php include_once("tabla.php");?>
+
             </div>
           </div>
           <div class="card-footer text-muted">
@@ -45,18 +45,18 @@
 
 
 
-<!-- Modal -->
-<div class="modal fade" id="agreganuevosdatos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Agrega nuevos juegos</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form action="" name="frmnuevo">
+  <!-- Modal -->
+  <div class="modal fade" id="agreganuevosdatos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Agrega nuevos juegos</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="" name="frmnuevo">
             <label for="">
               Nombre
             </label>
@@ -69,15 +69,15 @@
               Empresa
             </label>
             <input type="text" class="form-control input-sm" id="empresa" name="empresa">
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary" id="btn-agragarnuevo">Agregar nuevo</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" id="btn-agragarnuevo">Agregar nuevo</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
 
   <!-- Optional JavaScript -->
@@ -94,36 +94,37 @@
   <!--font awesome-->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
     crossorigin="anonymous">
-    <!--<script>
-    $(document).ready(function(){
+
+  <script>
+    $(document).ready(function () {
       $('#tablaDatatable').load('tabla.php');
     });
-</script>-->
-    <script>
-  $(document).ready(function () {
-    $('#iddatatable').DataTable();
-  });
-</script>  
-<script>
-  $(document).ready(function(){
-      $('#btn-agragarnuevo').click(function(){
-        datos=$('#frmnuevo').serialize();
+  </script>
+  
+
+
+  <script>
+    $(document).ready(function () {
+      $('#btn-agragarnuevo').click(function () {
+        datos = $('#frmnuevo').serialize();
         $.ajax({
           type: "POST",
-          data: datos,  
-          url:  "procesos/agregar.php",
-          succes:function(r){
-            if(r==1){
+          data: datos,
+          url: "procesos/agregar.php",
+          succes: function (r) {
+            if (r == 1) {
               $('#tablaDatatable').load('tabla.php');
-              alertify.success("Agregado con exito");              
-            }else{
+              alertify.success("Agregado con exito");
+            } else {
               alertify.error("Fallo al agregar");
             }
           }
         });
       });
-  });
-</script>
+    });
+  </script>
+
+
 </body>
 
 </html>
