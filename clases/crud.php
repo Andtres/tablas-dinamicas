@@ -29,4 +29,12 @@
             );
             return $datos;
         }
+
+        public function actualizar($datos){
+            $sql="UPDATE t_juegos SET nombre='$datos[0]',
+                                        anio='$datos[1]',
+                                        empresa='$datos[2]' WHERE id_juego='$datos[3]'";
+
+            return $this->obj->query($sql);
+        }
     }

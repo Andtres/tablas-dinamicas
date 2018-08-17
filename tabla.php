@@ -39,7 +39,7 @@
                     <?php echo $mostrar[3]?>
                 </td>
                 <td style="text-align: center;">
-                    <span class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modalEditar" onclick="agregaFrmActualizar('<?php echo $mostrar[0]?>')">
+                    <span class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modalEditar" onclick="agregaFrmActualizar('<?php echo $mostrar[0]?>')" id="btnActualizar">
                         <span class="fas fa-edit"></span>
                     </span>
 

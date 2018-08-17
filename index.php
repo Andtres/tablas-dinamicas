@@ -140,7 +140,24 @@
           }
         });
       });
-    });
+      $('#btnActualizar').click(function(){
+			datos=$('#frmnuevoU').serialize();
+			$.ajax({
+				type:"POST",
+				data:datos,
+				url:"procesos/actualizar.php",
+				success:function(r){
+					if(r==1){
+            $('#frmnuevoU')[0].reset();
+						$('#tablaDatatable').load('tabla.php');
+						alertify.success("Actualizado con exito");
+					}else{
+						alertify.error("Fallo al actualizar");
+					}
+				}
+			});
+		});
+	});
   </script>
   <script>
     $(document).ready(function () {
