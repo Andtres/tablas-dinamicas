@@ -4,6 +4,6 @@
 
     $obj = new Crud();
 
-   // 
+    
 
     echo json_encode($obj->obtenDatos($_POST['idjuego']));
