@@ -85,7 +85,7 @@
         </div>
         <div class="modal-body">
           <form action="" name="frmnuevoU" id="frmnuevoU">
-            <input type="text" name="idJuego" hidden="" id="idJuego">
+            <input type="text" name="idjuego" hidden="" id="idjuego">
             <label for="">
               Nombre
             </label>
@@ -155,7 +155,7 @@
 			url:"procesos/obtenDatos.php",
 			success:function(r){
 				datos=jQuery.parseJSON(r);
-				$('#idJuego').val(datos['id_juego']);
+				$('#idjuego').val(datos['id_juego']);
 				$('#nombreU').val(datos['nombre']);
 				$('#anioU').val(datos['anio']);
 				$('#empresaU').val(datos['empresa']);

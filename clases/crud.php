@@ -12,8 +12,13 @@
             return $this->obj->query($sql);
         }
 
-        public function obtenDatos($idjuegos){
-            $sql="SELECT * from t_juegos WHERE id_juego='$idjuegos';";
+        public function obtenDatos($idjuego){
+            $sql="SELECT id_juego,
+							nombre,
+							anio,
+							empresa
+					from t_juegos 
+					where id_juego='$idjuego'";
             $result=$this->obj->query($sql);
             $ver=$result->fetch_row();
             $datos=array(
