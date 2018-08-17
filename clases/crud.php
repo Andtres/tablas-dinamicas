@@ -37,4 +37,9 @@
 
             return $this->obj->query($sql);
         }
+
+        public function eliminar($idjuego){
+            $sql="DELETE FROM t_juegos WHERE id_juego='$idjuego'";
+            return $this->obj->query($sql);
+        }
     }

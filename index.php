@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -16,6 +17,7 @@
   <link rel="stylesheet" type="text/css" href="librerias/alertify/css/themes/bootstrap.min.css">
   <title>Data Table</title>
 </head>
+
 <body>
   <div class="container">
     <div class="row">
@@ -140,24 +142,24 @@
           }
         });
       });
-      $('#btnActualizar').click(function(){
-			datos=$('#frmnuevoU').serialize();
-			$.ajax({
-				type:"POST",
-				data:datos,
-				url:"procesos/actualizar.php",
-				success:function(r){
-					if(r==1){
-            $('#frmnuevoU')[0].reset();
-						$('#tablaDatatable').load('tabla.php');
-						alertify.success("Actualizado con exito");
-					}else{
-						alertify.error("Fallo al actualizar");
-					}
-				}
-			});
-		});
-	});
+      $('#btnActualizar').click(function () {
+        datos = $('#frmnuevoU').serialize();
+        $.ajax({
+          type: "POST",
+          data: datos,
+          url: "procesos/actualizar.php",
+          success: function (r) {
+            if (r == 1) {
+              $('#frmnuevoU')[0].reset();
+              $('#tablaDatatable').load('tabla.php');
+              alertify.success("Actualizado con exito");
+            } else {
+              alertify.error("Fallo al actualizar");
+            }
+          }
+        });
+      });
+    });
   </script>
   <script>
     $(document).ready(function () {
@@ -165,20 +167,39 @@
     });
   </script>
   <script>
-    function agregaFrmActualizar(idjuego){
-		$.ajax({
-			type:"POST",
-			data:"idjuego=" + idjuego,
-			url:"procesos/obtenDatos.php",
-			success:function(r){
-				datos=jQuery.parseJSON(r);
-				$('#idjuego').val(datos['id_juego']);
-				$('#nombreU').val(datos['nombre']);
-				$('#anioU').val(datos['anio']);
-				$('#empresaU').val(datos['empresa']);
-			}
-		});
-	}
+    function agregaFrmActualizar(idjuego) {
+      $.ajax({
+        type: "POST",
+        data: "idjuego=" + idjuego,
+        url: "procesos/obtenDatos.php",
+        success: function (r) {
+          datos = jQuery.parseJSON(r);
+          $('#idjuego').val(datos['id_juego']);
+          $('#nombreU').val(datos['nombre']);
+          $('#anioU').val(datos['anio']);
+          $('#empresaU').val(datos['empresa']);
+        }
+      });
+    }
+    function eliminarDatos(idjuego) {
+      alertify.confirm('Eliminar un juego', '¿Seguro de elimar este juego?',
+        function () {
+          $.ajax({
+            type: "POST",
+            data: "idjuego=" + idjuego,
+            url: "procesos/eliminar.php",
+            success: function (r) {
+             if(r == 1){
+                $('#tablaDatatable').load('tabla.php');
+               alertify.success("Elimanado con exito");
+             }else{
+               alertify.error("No se pudo elimanr...");
+             }
+            }
+          });
+        }
+        , function () {});
+    }
   </script>
 </body>
 

@@ -45,7 +45,7 @@
 
                 </td>
                 <td style="text-align: center;">
-                    <span class="btn btn-warning btn-sm">
+                    <span class="btn btn-danger btn-sm" onclick="eliminarDatos('<?php echo $mostrar[0]?>')">
                         <span class="fas fa-trash"></span>
                     </span>
                 </td>
